@@ -6,6 +6,8 @@ node_modules/
 
 workspace.xml
 
+dist/
+
 # Ignore Mac OS desktop services store
 .DS_Store
 
