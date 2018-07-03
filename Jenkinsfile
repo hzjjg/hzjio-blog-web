@@ -5,32 +5,23 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'npm install'
-                sh 'npm build'             
+                sh 'npm run build'             
                 echo 'Building' 
             }
         }
         stage('Deploy') {
             steps {
+                sh 'mv dist/ /www/hzjioBlog/'
                 echo './deploy staging'                
                 echo './run-smoke-tests'
             }
         }
-        stage('Sanity check') {            
-            steps {                
-                input "Does the staging environment look ok?"            
-            }        
-        }        
-        stage('Deploy - Production') {            
-            steps {                
-                echo './deploy production'            
-            }        
-        }   
     }
 
     post {        
         always {            
             echo 'One way or another, I have finished'            
-            deleteDir() /* clean up our workspace */        
+            // deleteDir() /* clean up our workspace */        
         }        
         success {            
             echo 'I succeeeded!'        
