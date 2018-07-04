@@ -10,7 +10,13 @@ pipeline {
             }
         }
         stage('Deploy') {
+            when {
+              expression {
+                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
+              }
+            }
             steps {
+                sh 'rm -rf /www/hzjioBlog/'
                 sh 'mv dist/ /www/hzjioBlog/'
                 echo './deploy staging'                
                 echo './run-smoke-tests'
