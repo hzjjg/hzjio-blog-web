@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/hzjjg/hzjioBlog#readme",
   "devDependencies": {
+    "@types/jquery": "^3.3.4",
     "awesome-typescript-loader": "^5.2.0",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
@@ -40,5 +41,7 @@
     "webpack-dev-server": "^3.1.4",
     "webpack-merge": "^4.1.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
 }
